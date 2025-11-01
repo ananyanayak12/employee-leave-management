@@ -1,23 +1,28 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const path = require("path");
 const connectDB = require("./config/db");
-const cors = require("cors");
-app.use(cors());
 
 dotenv.config();
 connectDB();
 
 const app = express();
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// API routes
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/leave", require("./routes/leaveRoutes"));
 
-app.get("/", (req, res) => {
-  res.send("Employee Leave Management System API is running 🚀");
+// Serve static frontend
+app.use(express.static(path.join(__dirname, "public")));
+
+// ✅ Fix for Express 5: use regex instead of "*"
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 const PORT = process.env.PORT || 5000;
