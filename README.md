@@ -91,7 +91,5 @@ employee-leave-management/
 ├── package.json
 └── README.md
 
-🤝 Author
-
-Ananya
-GitHub: ananyanayak12
+Author
+[text](https://github.com/ananyanayak12)ananyanayak12
