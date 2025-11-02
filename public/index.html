@@ -1,32 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employee Leave Management System</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Employee Leave Management System 🚀</h1>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Leave Management System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Employee Leave Management System 🚀</h1>
 
-      <div class="section">
-        <h2>Login</h2>
-        <input type="text" id="email" placeholder="Email" />
-        <input type="password" id="password" placeholder="Password" />
-        <button onclick="login()">Login</button>
-        <p id="loginResult"></p>
-      </div>
-
-      <div class="section">
-        <h2>Apply for Leave</h2>
-        <input type="text" id="reason" placeholder="Reason" />
-        <input type="number" id="days" placeholder="No. of Days" />
-        <button onclick="applyLeave()">Apply</button>
-        <p id="leaveResult"></p>
-      </div>
+    <div class="tabs">
+      <button id="loginTab" class="active" onclick="showTab('login')">Login</button>
+      <button id="registerTab" onclick="showTab('register')">Register</button>
     </div>
 
-    <script src="script.js"></script>
-  </body>
+    <!-- Login Section -->
+    <div id="loginSection" class="tab-content">
+      <input type="text" id="loginEmail" placeholder="Email" />
+      <input type="password" id="loginPassword" placeholder="Password" />
+      <button onclick="login()">Login</button>
+      <p id="loginResult"></p>
+    </div>
+
+    <!-- Register Section -->
+    <div id="registerSection" class="tab-content hidden">
+      <input type="text" id="registerName" placeholder="Full Name" />
+      <input type="text" id="registerEmail" placeholder="Email" />
+      <input type="password" id="registerPassword" placeholder="Password" />
+      <button onclick="register()">Register</button>
+      <p id="registerResult"></p>
+    </div>
+
+    <!-- Leave Application Section -->
+    <div id="leaveSection" class="hidden">
+      <h2>Apply for Leave</h2>
+      <input type="text" id="reason" placeholder="Reason" />
+      <input type="number" id="days" placeholder="No. of Days" />
+      <button onclick="applyLeave()">Apply</button>
+      <p id="leaveResult"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
