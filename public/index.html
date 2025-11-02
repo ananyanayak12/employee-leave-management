@@ -3,42 +3,75 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Employee Leave Management System</title>
+  <title>Employee Leave Management</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Employee Leave Management System 🚀</h1>
+  <!-- AUTH PAGE -->
+  <div class="auth-container" id="authContainer">
+    <h1>Employee Leave Management 🚀</h1>
 
     <div class="tabs">
       <button id="loginTab" class="active" onclick="showTab('login')">Login</button>
       <button id="registerTab" onclick="showTab('register')">Register</button>
     </div>
 
-    <!-- Login Section -->
+    <!-- LOGIN SECTION -->
     <div id="loginSection" class="tab-content">
-      <input type="text" id="loginEmail" placeholder="Email" />
+      <input type="email" id="loginEmail" placeholder="Email" />
       <input type="password" id="loginPassword" placeholder="Password" />
       <button onclick="login()">Login</button>
       <p id="loginResult"></p>
     </div>
 
-    <!-- Register Section -->
+    <!-- REGISTER SECTION -->
     <div id="registerSection" class="tab-content hidden">
       <input type="text" id="registerName" placeholder="Full Name" />
-      <input type="text" id="registerEmail" placeholder="Email" />
+      <input type="email" id="registerEmail" placeholder="Email" />
       <input type="password" id="registerPassword" placeholder="Password" />
       <button onclick="register()">Register</button>
       <p id="registerResult"></p>
     </div>
+  </div>
 
-    <!-- Leave Application Section -->
-    <div id="leaveSection" class="hidden">
-      <h2>Apply for Leave</h2>
+  <!-- EMPLOYEE DASHBOARD -->
+  <div class="main-container hidden" id="mainContainer">
+    <div class="navbar">
+      <h2>Welcome 👋 <span id="userName">Employee</span></h2>
+      <button class="logout" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="form-card">
+      <h3>Apply for Leave</h3>
       <input type="text" id="reason" placeholder="Reason" />
       <input type="number" id="days" placeholder="No. of Days" />
+      <input type="date" id="startDate" placeholder="Start Date" />
+      <input type="date" id="endDate" placeholder="End Date" />
       <button onclick="applyLeave()">Apply</button>
       <p id="leaveResult"></p>
+    </div>
+
+    <hr />
+
+    <div class="form-card">
+      <h3>My Leave Requests</h3>
+      <button onclick="loadMyLeaves()">🔄 Refresh My Leaves</button>
+      <!-- ✅ User’s leaves list will load here -->
+      <div id="myLeavesList"></div>
+    </div>
+  </div>
+
+  <!-- ADMIN DASHBOARD -->
+  <div class="main-container hidden" id="adminSection">
+    <div class="navbar">
+      <h2>Admin Dashboard 🛠️</h2>
+      <button class="logout" onclick="logout()">Logout</button>
+    </div>
+
+    <div class="form-card">
+      <h3>All Leave Requests</h3>
+      <!-- ✅ Admin sees all leave requests here -->
+      <div id="leaveList"></div>
     </div>
   </div>
 

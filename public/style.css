@@ -1,26 +1,27 @@
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #eef1f5;
-  margin: 0;
-  padding: 0;
+  background: linear-gradient(135deg, #74b9ff, #a29bfe);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: 0;
 }
 
-.container {
-  background: white;
-  width: 400px;
-  padding: 30px;
+.auth-container,
+.main-container {
+  background-color: #fff;
+  padding: 30px 40px;
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 400px;
   text-align: center;
+  transition: 0.4s ease;
 }
 
 h1 {
-  color: #2f3640;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  color: #2d3436;
 }
 
 .tabs {
@@ -32,60 +33,92 @@ h1 {
 .tabs button {
   flex: 1;
   padding: 10px;
-  background-color: #f1f2f6;
+  background: #dfe6e9;
   border: none;
-  font-weight: bold;
-  border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
 .tabs button.active {
-  background-color: #0097e6;
-  color: white;
+  background: #0984e3;
+  color: #fff;
 }
 
 input {
   display: block;
-  width: 90%;
-  margin: 10px auto;
+  width: 100%;
+  margin: 10px 0;
   padding: 12px;
   border: 1px solid #ccc;
   border-radius: 10px;
   outline: none;
-  transition: 0.3s;
 }
 
 input:focus {
-  border-color: #0097e6;
-  box-shadow: 0 0 5px rgba(0, 151, 230, 0.3);
+  border-color: #0984e3;
+  box-shadow: 0 0 6px rgba(9, 132, 227, 0.4);
 }
 
 button {
-  padding: 12px 25px;
+  background: #0984e3;
+  color: #fff;
   border: none;
-  background-color: #0097e6;
-  color: white;
+  padding: 12px 20px;
   border-radius: 10px;
   cursor: pointer;
-  margin-top: 10px;
   transition: 0.3s;
+  font-weight: bold;
 }
 
 button:hover {
-  background-color: #007bb5;
+  background: #0652dd;
 }
 
 .hidden {
   display: none;
 }
 
-.tab-content {
-  margin-top: 10px;
+/* Main Page */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0984e3;
+  color: #fff;
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
 }
 
-#leaveSection {
-  margin-top: 30px;
-  border-top: 1px solid #dcdde1;
-  padding-top: 20px;
+.logout {
+  background: #d63031;
+}
+
+.logout:hover {
+  background: #b71c1c;
+}
+
+.form-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+  color: #2d3436;
+  margin-bottom: 15px;
+}
+.leave-card {
+  background: #f1f2f6;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.leave-card button {
+  margin-right: 10px;
 }

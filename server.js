@@ -9,18 +9,18 @@ connectDB();
 
 const app = express();
 
-// Middleware
+// ---------- MIDDLEWARE ----------
 app.use(cors());
 app.use(express.json());
 
-// API routes
+// ---------- ROUTES ----------
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/leave", require("./routes/leaveRoutes"));
 
-// Serve static frontend
+// ---------- SERVE FRONTEND ----------
 app.use(express.static(path.join(__dirname, "public")));
 
-// ✅ Fix for Express 5: use regex instead of "*"
+// ✅ Fix for Express 5 (regex instead of "*")
 app.get(/.*/, (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
